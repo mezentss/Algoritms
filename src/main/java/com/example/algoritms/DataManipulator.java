@@ -82,7 +82,7 @@ class ListManipulator {
         list.get(list.size() / 2);
         long endTime = System.nanoTime();
 
-        System.out.println("Time taken to access first, middle, and last element: " + (endTime - startTime) + " ns");
+        System.out.println("Время выполнения: " + (endTime - startTime) + " наносек");
     }
 
     public boolean searchElement(List<Integer> list, int element) {
@@ -125,7 +125,7 @@ class ListManipulator {
 public class DataManipulator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the size of the data: ");
+        System.out.print("Введите длину массива: ");
         int size = scanner.nextInt();
 
         RandomDataGenerator dataGenerator = new RandomDataGenerator(size);
@@ -134,51 +134,51 @@ public class DataManipulator {
 
         ElementSwapper elementSwapper = new ElementSwapper();
 
-        System.out.println("Initial Data:");
-        System.out.println("List: " + dataList);
-        System.out.println("Array: " + Arrays.toString(dataArray));
+        System.out.println("Данные:");
+        System.out.println("Список: " + dataList);
+        System.out.println("Массив: " + Arrays.toString(dataArray));
 
-        System.out.print("\nEnter element 1 to swap: ");
+        System.out.print("\nВведите первый элемент для перемещения: ");
         int element1 = scanner.nextInt();
-        System.out.print("Enter element 2 to swap: ");
+        System.out.print("Введите второй элемент: ");
         int element2 = scanner.nextInt();
 
         elementSwapper.swapElements(dataList, element1, element2);
         elementSwapper.swapElements(dataArray, element1, element2);
 
-        System.out.println("\nData after swapping elements:");
-        System.out.println("List: " + dataList);
-        System.out.println("Array: " + Arrays.toString(dataArray));
+        System.out.println("\nРезультат:");
+        System.out.println("Список: " + dataList);
+        System.out.println("Массив: " + Arrays.toString(dataArray));
 
         ListManipulator listManipulator = new ListManipulator(dataList);
 
-        System.out.println("\nTesting List Speed:");
+        System.out.println("\nВремя:");
         listManipulator.testListSpeed();
 
-        System.out.print("\nEnter an element to search: ");
+        System.out.print("\nВведите элемент для поиска: ");
         int searchElement = scanner.nextInt();
-        System.out.println("Element found: " + listManipulator.searchElement(dataList, searchElement));
+        System.out.println( listManipulator.searchElement(dataList, searchElement));
 
-        System.out.print("\nEnter an index to search: ");
+        System.out.print("\nВведите индекс для поиска: ");
         int index = scanner.nextInt();
-        System.out.println("Index found: " + listManipulator.searchElementByIndex(dataList, index));
+        System.out.println(listManipulator.searchElementByIndex(dataList, index));
 
-        System.out.print("\nEnter an element to insert: ");
+        System.out.print("\nВведите элемент для поиска: ");
         int insertElement = scanner.nextInt();
-        System.out.print("Enter the index for insertion: ");
+        System.out.print("Введите индекс для поиска: ");
         int insertIndex = scanner.nextInt();
         listManipulator.insertElement(dataList, insertElement, insertIndex);
-        System.out.println("List: " + dataList);
+        System.out.println("Список: " + dataList);
 
-        System.out.print("\nEnter the index for deletion: ");
+        System.out.print("\nВведите индекс для удаления: ");
         int deleteIndex = scanner.nextInt();
         listManipulator.deleteElement(dataList, deleteIndex);
-        System.out.println("List: " + dataList);
+        System.out.println("Список: " + dataList);
 
         listManipulator.performInsertionSort(dataList);
 
-        System.out.println("\nFinal Data:");
-        System.out.println("List: " + dataList);
+        System.out.println("\nРезультат:");
+        System.out.println("Список: " + dataList);
 
         scanner.close();
     }
